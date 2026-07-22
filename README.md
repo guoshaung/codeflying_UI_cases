@@ -92,6 +92,8 @@ https://github.com/guoshaung/codeflying_UI_cases
 ## 几条硬规则
 
 1. 登录可以是前置条件；如果本次不测登录，不要把登录计入用例数。
+   手机号验证码登录专项可自动化，口径是“测试环境 mock 验证码”：点击获取验证码后，用老郭登录技能的 `get_redis_code.py` 从测试 Redis/mock 服务读取验证码再登录。Redis/mock 不可用时标记 `BLOCKED_MOCK_OTP_UNAVAILABLE`，不要写成“登录类没有 mock 能力”。
+   一轮全量/冒烟测试中 mock OTP 登录只执行一次；执行成功后保存并复用本轮 session，其他业务 runner 必须跳过登录。
 2. 支付要拆开：二维码生成、mock/沙箱支付、真实扫码支付不是同一件事。
    当前 P0 冒烟阶段，会员/积分/购买类用例统一复用一个稳定的已登录测试账号；
    能打开购买入口并弹出二维码或 mock 支付弹窗即可通过，真实扫码和扣款不在自动化门禁内。
