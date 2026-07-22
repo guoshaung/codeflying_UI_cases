@@ -157,9 +157,9 @@ def account_profile(path_text: str, title: str) -> str:
     if "未登录首页" in text:
         return "anonymous（不加载 Playwright session）"
     if "邀请新用户" in text:
-        return "fixed-inviter + generated-new-phone"
+        return "fixed_inviter_account + generated_new_phone"
     if "非新用户" in text:
-        return "fixed-inviter + fixed-existing-phone"
+        return "fixed_inviter_account + fixed_existing_phone"
     if "手机号" in text or "验证码" in text:
         return "generated-test-phone + mock-otp"
     if "微信登录" in text or "微信扫码登录" in text:
@@ -184,7 +184,7 @@ def state_metadata(title: str, path_text: str) -> tuple[str, str, str]:
     text = f"{path_text} {title}"
     stateful = any(keyword in text for keyword in STATEFUL_KEYWORDS)
     if "邀请" in text or "奖励" in text:
-        return "yes", "invitation:{inviter_id}", "清理测试被邀请人、邀请关系与测试奖励记录"
+        return "yes", "invitation:{inviter_id}", "清理测试被邀请人账号、邀请关系与测试奖励记录；清理失败标记 CLEANUP_FAILED"
     if "密钥" in text:
         return "yes" if stateful else "no", "api_key:{account_id}", "删除本轮创建的测试密钥；恢复基线状态"
     if "支付" in text or "购买" in text or "充值" in text or "账单" in text:
@@ -201,9 +201,9 @@ def precondition(path_text: str, title: str, profile: str) -> str:
     if "未登录首页" in text:
         return "新建无登录态 Browser Context，不加载 storageState。"
     if "邀请新用户" in text:
-        return "固定邀请人已登录；生成测试手机号并在执行前确保该手机号不存在。"
+        return "固定邀请人已登录；为本轮生成动态测试手机号，注册前确认该手机号不存在，执行后清理测试被邀请人、邀请关系与奖励记录。"
     if "非新用户" in text:
-        return "固定邀请人已登录；使用已经注册过的固定老用户手机号。"
+        return "固定邀请人已登录；使用已经注册过的固定老用户手机号，验证不会再次下发新用户邀请奖励。"
     if "验证码" in text or "手机号" in text:
         return "启用测试环境 mock 验证码；使用测试专用手机号段，禁止向真实号码发送短信。"
     if "微信扫码登录" in text:
