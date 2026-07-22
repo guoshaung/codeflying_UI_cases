@@ -21,6 +21,20 @@ cases/
 
 - [cases/P0/CodeFlying_10_robust_evaluation_cases.md](cases/P0/CodeFlying_10_robust_evaluation_cases.md)
 
+应用生成扩展 10 条在：
+
+- [cases/P0/CodeFlying_app_generation_extra_10.md](cases/P0/CodeFlying_app_generation_extra_10.md)
+
+这两份合起来就是当前 demo 套件的 20 条 Markdown 用例。
+
+从 XMind 拆分出的正式 P0 冒烟用例在：
+
+- [cases/P0/smoke/README.md](cases/P0/smoke/README.md)
+
+`cases/P0/smoke/` 采用“逻辑图最终叶子节点一条一个 Markdown”的方式，当前包含 112 条：国内 PC 70 条、国内 H5 42 条。原始 XMind 和提取版 Markdown 仅作为来源文件保留；自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 112 个 Markdown 文件为准。
+
+注意：不按标题中是否出现 `TC：` 来计数，也不合并相同标题。只要是逻辑图中的最终叶子节点，就保留为独立用例；即使同一功能下有“免费版 / 标准版 / 进阶版”等参数叶子，也分别执行、分别记录结果。
+
 ## 老郭怎么读取
 
 常用提示词：
@@ -47,6 +61,13 @@ https://github.com/guoshaung/codeflying_UI_cases
 
 如果只想跑某个优先级，把 `cases/P0` 改成 `cases/P1` 或 `cases/P2` 即可。
 
+如果只想跑正式冒烟用例，请指定：
+
+```text
+本次只执行 cases/P0/smoke/ 下的 Markdown 用例。
+按文件中的 Agent 分组、账号类型、数据锁和人工测试原因执行。
+```
+
 ## 新增用例格式
 
 复制模板：
@@ -72,6 +93,8 @@ https://github.com/guoshaung/codeflying_UI_cases
 
 1. 登录可以是前置条件；如果本次不测登录，不要把登录计入用例数。
 2. 支付要拆开：二维码生成、mock/沙箱支付、真实扫码支付不是同一件事。
+   当前 P0 冒烟阶段，会员/积分/购买类用例统一复用一个稳定的已登录测试账号；
+   能打开购买入口并弹出二维码或 mock 支付弹窗即可通过，真实扫码和扣款不在自动化门禁内。
 3. 下载源码必须验证文件真实落盘、大小大于 0、文件可读。
 4. 二维码必须验证图片资源加载正常；能扫码/能解码时再写“可识别”。
 5. P0 有失败、阻塞或证据不足时，报告不能写“全部通过”或“建议上线”。

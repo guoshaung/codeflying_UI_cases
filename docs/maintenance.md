@@ -6,7 +6,11 @@
 - P1 用例放到 `cases/P1/`
 - P2 用例放到 `cases/P2/`
 
-不需要改 suite，不需要维护索引。老郭按目录读取即可。
+P0 冒烟用例放到 `cases/P0/smoke/`，一条 TC 一个 Markdown，并通过同目录的 `README.md` 查看索引。
+
+原始 XMind、提取版 Markdown 和历史汇总文件只作为来源或兼容文件保留，不作为正式自动化输入。
+
+不需要改 suite。老郭按目录递归读取 Markdown 即可。
 
 ## 怎么命名
 
@@ -35,3 +39,5 @@ publish-and-preview.md
 - 工具报错后重试成功，记 `RETRY_PASS`，不要直接记普通 `PASS`。
 - 阻塞、未验证、未执行都不能计入通过数。
 - 报告数量必须守恒：`PASS + RETRY_PASS + FAIL + BLOCKED + NOT_RUN = 实际用例数`。
+- `MANUAL_REQUIRED` 要与自动化失败分开统计，不能因为人工依赖而判定自动化 FAIL。
+- 涉及账号、应用、支付、邀请、API 密钥的用例必须填写数据锁和清理动作。
