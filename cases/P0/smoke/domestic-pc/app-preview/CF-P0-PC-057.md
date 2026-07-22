@@ -6,9 +6,9 @@
 - 执行方式：可自动化
 - 问题类型：产品体验
 - 用户类型：免费用户
-- 前置条件：加载免费用户 Playwright session。
+- 前置条件：加载固定非会员测试账号 Playwright session；该账号应保持免费/无下载权益状态。
 - Agent 分组：pc_app_runner
-- 账号类型：free-user-session
+- 账号类型：free_account
 - 是否修改数据：no
 - 数据锁：`none`
 - 清理动作：无；若产生临时数据则按 test_run_id 清理
@@ -20,6 +20,9 @@
 1. 创建独立的 国内PC Browser Context，并按前置条件加载或清除登录态。
 2. 进入 FM 路径：`国内主站 / 应用预览页 / 顶部功能`。
 3. 执行原始测试点描述的操作：非会员用户点击触发付费弹窗。
+   - 使用 `free_account`，不要临时修改数据库会员状态。
+   - 若当前缺少固定非会员 session，本用例标记 `BLOCKED_ACCOUNT_REQUIRED`，不得用会员账号硬跑。
+   - 下载按钮优先按 DOM/tooltip 定位：`.download-button`、`.tool-icon.download-button`、`[class*="download"]`、`aria-describedby` 关联 tooltip。
 4. 记录页面状态、URL、关键 DOM、接口结果和截图。
 
 ## 预期结果
@@ -30,11 +33,12 @@
 ## 通过标准
 
 - 目标页面、弹窗、状态或数据变化与测试点描述一致。
+- 点击下载入口后出现付费/升级/购买弹窗，或业务接口明确返回需购买/无权益。
 - 自动化证据完整；若有重试，必须记录首次错误并标记 `RETRY_PASS`。
 
 ## 失败条件
 
-- 目标结果未出现、出现错误状态、数据不一致或页面不可继续操作。
+- 使用 `free_account` 点击后直接下载成功、无任何付费/升级提示、接口未体现权益限制，或页面不可继续操作。
 
 ## 阻塞条件
 

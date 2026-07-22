@@ -6,9 +6,9 @@
 - 执行方式：可自动化
 - 问题类型：产品体验
 - 用户类型：付费用户
-- 前置条件：加载付费会员 Playwright session。
+- 前置条件：加载固定会员测试账号 Playwright session；该账号应保持会员/有全天候预览权益状态。
 - Agent 分组：pc_app_runner
-- 账号类型：paid-user-session
+- 账号类型：member_account
 - 是否修改数据：no
 - 数据锁：`none`
 - 清理动作：无；若产生临时数据则按 test_run_id 清理

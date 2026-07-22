@@ -165,9 +165,9 @@ def account_profile(path_text: str, title: str) -> str:
     if "微信登录" in text or "微信扫码登录" in text:
         return "anonymous + manual-wechat"
     if "非会员用户" in text:
-        return "free-user-session"
+        return "free_account"
     if "会员用户点击" in text:
-        return "paid-user-session"
+        return "member_account"
     return "default-playwright-session"
 
 
@@ -208,10 +208,10 @@ def precondition(path_text: str, title: str, profile: str) -> str:
         return "启用测试环境 mock 验证码；使用测试专用手机号段，禁止向真实号码发送短信。"
     if "微信扫码登录" in text:
         return "未登录；具备微信测试账号和人工扫码条件。"
-    if profile == "free-user-session":
-        return "加载免费用户 Playwright session。"
-    if profile == "paid-user-session":
-        return "加载付费会员 Playwright session。"
+    if profile == "free_account":
+        return "加载固定非会员测试账号 Playwright session；该账号应保持免费/无下载权益状态。"
+    if profile == "member_account":
+        return "加载固定会员测试账号 Playwright session；该账号应保持会员/有下载权益状态。"
     return "加载对应端的 Playwright session；需要应用时使用稳定、非转圈的测试应用。"
 
 

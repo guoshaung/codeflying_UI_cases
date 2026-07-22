@@ -6,9 +6,9 @@
 - 执行方式：可自动化
 - 问题类型：产品体验
 - 用户类型：付费用户
-- 前置条件：加载付费会员 Playwright session。
+- 前置条件：加载固定会员测试账号 Playwright session；该账号应保持会员/有下载权益状态。
 - Agent 分组：pc_app_runner
-- 账号类型：paid-user-session
+- 账号类型：member_account
 - 是否修改数据：no
 - 数据锁：`none`
 - 清理动作：无；若产生临时数据则按 test_run_id 清理
@@ -20,6 +20,8 @@
 1. 创建独立的 国内PC Browser Context，并按前置条件加载或清除登录态。
 2. 进入 FM 路径：`国内主站 / 应用预览页 / 顶部功能`。
 3. 执行原始测试点描述的操作：会员用户点击下载按钮用户可将项目代码下载至本地。
+   - 使用 `member_account`，不要临时修改数据库会员状态。
+   - 下载按钮优先按 DOM/tooltip 定位：`.download-button`、`.tool-icon.download-button`、`[class*="download"]`、`aria-describedby` 关联 tooltip。
 4. 记录页面状态、URL、关键 DOM、接口结果和截图。
 
 ## 预期结果
@@ -30,6 +32,7 @@
 ## 通过标准
 
 - 目标页面、弹窗、状态或数据变化与测试点描述一致。
+- 必须验证真实下载落盘、文件非空且可读。
 - 自动化证据完整；若有重试，必须记录首次错误并标记 `RETRY_PASS`。
 
 ## 失败条件

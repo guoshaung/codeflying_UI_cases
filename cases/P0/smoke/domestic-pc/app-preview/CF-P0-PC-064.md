@@ -6,9 +6,9 @@
 - 执行方式：可自动化
 - 问题类型：产品体验
 - 用户类型：免费用户
-- 前置条件：加载免费用户 Playwright session。
+- 前置条件：加载固定非会员测试账号 Playwright session；该账号应保持免费/无全天候预览权益状态。
 - Agent 分组：pc_app_runner
-- 账号类型：free-user-session
+- 账号类型：free_account
 - 是否修改数据：no
 - 数据锁：`none`
 - 清理动作：无；若产生临时数据则按 test_run_id 清理
@@ -20,6 +20,8 @@
 1. 创建独立的 国内PC Browser Context，并按前置条件加载或清除登录态。
 2. 进入 FM 路径：`国内主站 / 应用预览页 / 预览和分享 / 在线模式剩余时长`。
 3. 执行原始测试点描述的操作：非会员用户点击升级解锁按钮弹出付费弹窗。
+   - 使用 `free_account`，不要临时修改数据库会员状态。
+   - 若当前缺少固定非会员 session，本用例标记 `BLOCKED_ACCOUNT_REQUIRED`，不得用会员账号硬跑。
 4. 记录页面状态、URL、关键 DOM、接口结果和截图。
 
 ## 预期结果
