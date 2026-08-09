@@ -7,7 +7,7 @@
 - 问题类型：产品体验 / Agent体验
 - 用户类型：免费用户 / 付费用户
 - 前置条件：
-- Agent 分组：
+- Agent 分组：auth_access_agent / guest_explore_agent / shell_navigation_agent / invite_credit_agent / membership_credit_agent / api_key_agent / app_lifecycle_agent / app_publish_test_agent / remix_agent / profile_support_agent
 - 账号类型：anonymous / default-playwright-session / member_account / free_account / fixed_inviter_account / generated_new_phone / fixed_existing_phone / generated-test-phone
 - 是否修改数据：yes / no
 - 数据锁：none / account:{phone} / app:{app_id} / payment:{account_id} / invitation:{inviter_id}

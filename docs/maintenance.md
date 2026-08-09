@@ -37,6 +37,36 @@ publish-and-preview.md
 
 文件名不强制，但用例 ID 必须在正文里唯一。
 
+## 新增用例放哪里
+
+正式冒烟用例固定放到：
+
+```text
+cases/P0/smoke/<市场>-<平台>/<模块>/<CASE_ID>.md
+```
+
+目录示例：
+
+- 国内 PC：`cases/P0/smoke/domestic-pc/auth/CF-P0-PC-071.md`
+- 国内 H5：`cases/P0/smoke/domestic-h5/profile/CF-P0-H5-043.md`
+- 海外 PC：`cases/P0/smoke/overseas-pc/auth/CF-P0-INTL-PC-064.md`
+- 海外 H5：`cases/P0/smoke/overseas-h5/profile/CF-P0-INTL-H5-043.md`
+
+每条新增用例必须填写 `Agent 分组`，只能使用：
+
+- `auth_access_agent`
+- `guest_explore_agent`
+- `shell_navigation_agent`
+- `invite_credit_agent`
+- `membership_credit_agent`
+- `api_key_agent`
+- `app_lifecycle_agent`
+- `app_publish_test_agent`
+- `remix_agent`
+- `profile_support_agent`
+
+Web 自动测试每轮开始前会比较 GitHub 新旧提交。新增用例按 `Agent 分组` 放入对应功能 Agent；修改用例覆盖原文件；删除用例同时从功能 Agent 移除。缺少有效分组的新增用例不会执行，也不会由系统猜测归属。
+
 ## 什么时候定 P0 / P1 / P2
 
 - P0：核心流程走不下去；支付/计费错误；数据丢失、泄露、越权；商业化受阻。
