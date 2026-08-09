@@ -128,27 +128,38 @@ def execution_mode(title: str) -> tuple[str, str]:
 
 def agent_for(platform_key: str, path_text: str, title: str) -> str:
     identity_text = f"{path_text} {title}"
-    if (
-        "登录" in identity_text
-        or "邀请新用户" in identity_text
-        or "非新用户" in identity_text
-        or "验证码" in identity_text
-    ):
-        return "auth_identity_runner"
+    if "邀请" in identity_text or "推荐奖励" in identity_text:
+        return "invite_credit_agent"
+    if "登录" in title or "验证码" in identity_text or "微信登录" in path_text:
+        return "auth_access_agent"
     if platform_key == "pc":
+        if "API" in identity_text or "密钥" in identity_text:
+            return "api_key_agent"
+        if "做同款" in identity_text:
+            return "remix_agent"
+        if any(keyword in identity_text for keyword in ("发布", "二维码", "复制链接", "非会员用户点击")):
+            return "app_publish_test_agent"
         if any(keyword in path_text for keyword in ("应用创建", "应用预览页", "复制应用")):
-            return "pc_app_runner"
+            return "app_lifecycle_agent"
+        if "未登录首页" in path_text:
+            return "guest_explore_agent"
         if any(keyword in path_text for keyword in ("应用广场", "我的应用", "顶部导航", "在线客服", "语言选择")):
-            return "pc_navigation_runner"
+            return "shell_navigation_agent"
         if any(
             keyword in path_text
             for keyword in ("侧边栏", "赚取积分", "我的权益", "设置和账单")
         ):
-            return "pc_account_runner"
-        return "pc_navigation_runner"
-    if any(keyword in path_text for keyword in ("工作台", "个人中心", "应用创建")):
-        return "h5_workspace_runner"
-    return "h5_browse_runner"
+            return "membership_credit_agent"
+        return "shell_navigation_agent"
+    if "做同款" in identity_text:
+        return "remix_agent"
+    if "个人中心" in path_text:
+        if any(keyword in identity_text for keyword in ("会员", "充值", "购买")):
+            return "membership_credit_agent"
+        return "profile_support_agent"
+    if any(keyword in path_text for keyword in ("工作台", "应用创建")):
+        return "app_lifecycle_agent"
+    return "guest_explore_agent"
 
 
 def account_profile(path_text: str, title: str) -> str:
