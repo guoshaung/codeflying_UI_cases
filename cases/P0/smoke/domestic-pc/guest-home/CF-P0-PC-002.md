@@ -7,13 +7,12 @@
 - 问题类型：产品体验
 - 用户类型：免费用户 / 付费用户
 - 前置条件：新建无登录态 Browser Context，不加载 storageState。
-- Agent 分组：auth_identity_runner
+- Agent 分组：auth_access_agent
 - 账号类型：anonymous（不加载 Playwright session）
 - 是否修改数据：no
 - 数据锁：`account:{phone}`
 - 清理动作：清理动态测试账号及登录会话
 - 人工测试原因：无
-- XMind 原始标记：`priority-1`
 
 ## 测试步骤
 

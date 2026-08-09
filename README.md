@@ -13,14 +13,10 @@ cases/                         # 自动化实际读取的 Markdown 用例
 └── P2/
 suites/demo/                   # 独立的 20 条 Agent 能力测评集
 docs/                          # 维护规则和测试账号说明
-scripts/                       # 从 XMind 生成 Markdown 的维护脚本
 templates/                     # 新增用例模板
-码上飞冒烟测试用例.xmind        # 唯一的原始 XMind 来源文件
-码上飞冒烟测试用例_提取.md       # 便于人工查看的原始层级提取文件
 ```
 
-自动化只读取 `cases/`，不会执行根目录的 XMind 和提取文件。仓库只保留一份
-XMind 原文件，避免多个副本修改后无法判断哪一份是最新版本。
+自动化只读取 `cases/`，正式用例直接维护 Markdown。
 
 新增正式用例必须放在 `cases/P0/smoke/<市场>-<平台>/<模块>/`，并在用例中填写有效的 `Agent 分组`。Web 自动测试会在每轮开始前同步 GitHub 的新增、修改和删除；详细规则见 [用例维护说明](docs/maintenance.md)。
 
@@ -48,21 +44,11 @@ cases/
 这两份合起来是 demo 套件的 20 条用例。它们与正式冒烟用例用途不同，放在
 `suites/demo/` 中，避免递归读取 `cases/P0/` 时重复执行相似场景。
 
-从 XMind 拆分出的正式 P0 冒烟用例在：
+正式 P0 冒烟用例在：
 
 - [cases/P0/smoke/README.md](cases/P0/smoke/README.md)
 
-`cases/P0/smoke/` 采用“逻辑图最终叶子节点一条一个 Markdown”的方式，当前包含 112 条：国内 PC 70 条、国内 H5 42 条。原始 XMind 和提取版 Markdown 仅作为来源文件保留；自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 112 个 Markdown 文件为准。
-
-需要重新从 XMind 生成用例时，在仓库根目录执行：
-
-```bash
-python3 scripts/split_xmind_smoke_cases.py --force
-```
-
-脚本默认使用当前仓库内的 XMind 和输出目录，不依赖维护者电脑上的固定绝对路径。
-
-注意：不按标题中是否出现 `TC：` 来计数，也不合并相同标题。只要是逻辑图中的最终叶子节点，就保留为独立用例；即使同一功能下有“免费版 / 标准版 / 进阶版”等参数叶子，也分别执行、分别记录结果。
+`cases/P0/smoke/` 当前包含 104 条：国内 PC 64 条、国内 H5 40 条。每条用例一个 Markdown，PC 和 H5 分别连续编号。自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 104 个 Markdown 文件为准。
 
 ## 老郭怎么读取
 
