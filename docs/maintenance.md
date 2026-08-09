@@ -8,9 +8,22 @@
 
 P0 冒烟用例放到 `cases/P0/smoke/`，一条 TC 一个 Markdown，并通过同目录的 `README.md` 查看索引。
 
-原始 XMind、提取版 Markdown 和历史汇总文件只作为来源或兼容文件保留，不作为正式自动化输入。
+Agent 能力测评集放到 `suites/demo/`，不要放进 `cases/P0/`。测评集可能与产品冒烟用例覆盖相似场景，分开存放可以避免 runner 递归读取时重复执行。
+
+根目录中的原始 XMind 和提取版 Markdown 只作为来源文件保留，不作为正式自动化输入。XMind 只保留一份，不要复制到 `cases/` 或其他目录。
 
 不需要改 suite。老郭按目录递归读取 Markdown 即可。
+
+## 从 XMind 重新生成
+
+在仓库根目录执行：
+
+```bash
+python3 scripts/split_xmind_smoke_cases.py --force
+```
+
+生成前先提交或备份人工维护过的 Markdown。`--force` 会重建
+`cases/P0/smoke/`，因此只应在明确需要用 XMind 覆盖生成结果时使用。
 
 ## 怎么命名
 

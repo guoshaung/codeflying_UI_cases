@@ -4,6 +4,24 @@
 
 这个仓库只做一件事：让测试同学和自动化测试 Agent（老郭）能快速找到、维护、执行用例。
 
+## 仓库结构
+
+```text
+cases/                         # 自动化实际读取的 Markdown 用例
+├── P0/smoke/                  # 正式冒烟用例及索引
+├── P1/
+└── P2/
+suites/demo/                   # 独立的 20 条 Agent 能力测评集
+docs/                          # 维护规则和测试账号说明
+scripts/                       # 从 XMind 生成 Markdown 的维护脚本
+templates/                     # 新增用例模板
+码上飞冒烟测试用例.xmind        # 唯一的原始 XMind 来源文件
+码上飞冒烟测试用例_提取.md       # 便于人工查看的原始层级提取文件
+```
+
+自动化只读取 `cases/`，不会执行根目录的 XMind 和提取文件。仓库只保留一份
+XMind 原文件，避免多个副本修改后无法判断哪一份是最新版本。
+
 ## 最简单的维护方式
 
 新增用例时，直接按优先级放到对应目录：
@@ -17,21 +35,30 @@ cases/
 
 每个用例文件使用 Markdown。可以一份文件写一条用例，也可以一份文件写一组相关用例。
 
-当前核心 10 条 P0 用例在：
+独立的核心 10 条 Agent 能力测评用例在：
 
-- [cases/P0/CodeFlying_10_robust_evaluation_cases.md](cases/P0/CodeFlying_10_robust_evaluation_cases.md)
+- [suites/demo/CodeFlying_10_robust_evaluation_cases.md](suites/demo/CodeFlying_10_robust_evaluation_cases.md)
 
 应用生成扩展 10 条在：
 
-- [cases/P0/CodeFlying_app_generation_extra_10.md](cases/P0/CodeFlying_app_generation_extra_10.md)
+- [suites/demo/CodeFlying_app_generation_extra_10.md](suites/demo/CodeFlying_app_generation_extra_10.md)
 
-这两份合起来就是当前 demo 套件的 20 条 Markdown 用例。
+这两份合起来是 demo 套件的 20 条用例。它们与正式冒烟用例用途不同，放在
+`suites/demo/` 中，避免递归读取 `cases/P0/` 时重复执行相似场景。
 
 从 XMind 拆分出的正式 P0 冒烟用例在：
 
 - [cases/P0/smoke/README.md](cases/P0/smoke/README.md)
 
 `cases/P0/smoke/` 采用“逻辑图最终叶子节点一条一个 Markdown”的方式，当前包含 112 条：国内 PC 70 条、国内 H5 42 条。原始 XMind 和提取版 Markdown 仅作为来源文件保留；自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 112 个 Markdown 文件为准。
+
+需要重新从 XMind 生成用例时，在仓库根目录执行：
+
+```bash
+python3 scripts/split_xmind_smoke_cases.py --force
+```
+
+脚本默认使用当前仓库内的 XMind 和输出目录，不依赖维护者电脑上的固定绝对路径。
 
 注意：不按标题中是否出现 `TC：` 来计数，也不合并相同标题。只要是逻辑图中的最终叶子节点，就保留为独立用例；即使同一功能下有“免费版 / 标准版 / 进阶版”等参数叶子，也分别执行、分别记录结果。
 
@@ -43,7 +70,7 @@ cases/
 请读取 GitHub 仓库：
 https://github.com/guoshaung/codeflying_UI_cases
 
-本次只执行 cases/P0 下的 Markdown 用例。
+本次只执行 cases/P0/smoke/ 下的 Markdown 用例。
 不要读取历史旧用例，不要自行扩展额外用例。
 
 测试环境：dev
@@ -59,7 +86,9 @@ https://github.com/guoshaung/codeflying_UI_cases
 6. 是否建议继续回归。
 ```
 
-如果只想跑某个优先级，把 `cases/P0` 改成 `cases/P1` 或 `cases/P2` 即可。
+如果只想跑 P1 或 P2，把路径改成 `cases/P1` 或 `cases/P2` 即可。
+
+如果要跑 20 条 Agent 能力测评集，明确指定 `suites/demo/`，不要与正式冒烟用例混跑。
 
 如果只想跑正式冒烟用例，请指定：
 
