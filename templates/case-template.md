@@ -13,7 +13,6 @@
 - 数据锁：none / account:{phone} / app:{app_id} / payment:{account_id} / invitation:{inviter_id}
 - 清理动作：
 - 人工测试原因：
-- XMind 原始标记：
 
 ## 测试步骤
 
