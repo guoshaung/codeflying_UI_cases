@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Split CodeFlying smoke-test XMind topics into one Markdown file per P0 case."""
+"""把 CodeFlying 冒烟测试 XMind 拆分为一条 P0 用例一个 Markdown 文件。"""
 
 from __future__ import annotations
 
@@ -76,12 +76,11 @@ def is_tc_title(value: str) -> bool:
 
 
 def case_title(raw_title: str, path: list[str]) -> str:
-    """Use every final XMind node as a case.
+    """把每个 XMind 最终叶子节点视为一条用例。
 
-    Some final nodes are written as parameter/variant leaves below a parent
-    ``TC：`` topic (for example ``标准版 3000``).  They are still independent
-    final nodes in the logic graph, so keep the parent TC context in the
-    generated title instead of dropping them.
+    部分叶子节点是父级 ``TC：`` 主题下的参数或版本，例如
+    ``标准版 3000``。这些节点仍是逻辑图中的独立最终节点，因此生成标题时
+    需要保留父级 TC 上下文。
     """
     if is_tc_title(raw_title):
         return clean_title(raw_title)
@@ -93,7 +92,7 @@ def case_title(raw_title: str, path: list[str]) -> str:
 
 
 def case_module_path(path: list[str]) -> str:
-    """Return the FM path without the leaf and without a parent TC label."""
+    """返回不包含叶子节点和父级 TC 标签的 FM 路径。"""
     parts = [clean_module(item) for item in path[1:-1] if clean_module(item)]
     parts = [item for item in parts if not is_tc_title(item)]
     return " / ".join(parts) or "通用"
@@ -294,14 +293,15 @@ def render_case(
 
 
 def main() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--xmind",
-        default="/Users/codeflying-ui-cases/码上飞冒烟测试用例.xmind",
+        default=str(repo_root / "码上飞冒烟测试用例.xmind"),
     )
     parser.add_argument(
         "--output",
-        default="/Users/codeflying-ui-cases/cases/P0/smoke",
+        default=str(repo_root / "cases/P0/smoke"),
     )
     parser.add_argument(
         "--force",
@@ -327,9 +327,8 @@ def main() -> None:
         raw_title = str(topic.get("title") or "").strip()
         next_path = path + [raw_title]
         topic_children = children(topic)
-        # The XMind contract is: every final node is a test case.  Do not
-        # count parent TC topics that have children, and do not discard
-        # leaf variants just because their title lacks the "TC：" prefix.
+        # XMind 约定：每个最终叶子节点都是一条测试用例。
+        # 不统计仍有子节点的父级 TC，也不因叶子标题缺少“TC：”前缀而丢弃它。
         if not topic_children:
             platform, id_segment, platform_key = platform_info(top_title)
             counters[id_segment] += 1

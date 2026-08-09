@@ -3,7 +3,7 @@
 > 版本：v1.4  
 > 日期：2026-07-15  
 > 测试环境：<https://dev.codeflying.net/>  
-> 仓库位置：`cases/P0/CodeFlying_10_robust_evaluation_cases.md`  
+> 仓库位置：`suites/demo/CodeFlying_10_robust_evaluation_cases.md`
 > 用途：CodeFlying Web 自动化测试 Agent 的核心能力验收与回归测评
 
 ## 1. 测评目标
