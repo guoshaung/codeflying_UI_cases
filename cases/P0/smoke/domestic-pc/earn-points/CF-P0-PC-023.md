@@ -16,12 +16,11 @@
 
 ## 测试步骤
 
-1. 创建邀请人 member/www 独立 Browser Context，加载 `MEMBER_SESSION`，进入“赚取积分”。
-2. 记录邀请人当前积分数值或奖励流水，保存 `inviter-before.png`；复制完整邀请链接并确认链接含邀请标识。
-3. 生成本轮唯一、未注册的动态手机号。通过 `agent` 调用 `invite_registration_agent`，传入 case 路径、邀请链接、手机号、OTP 脚本路径、`EVIDENCE_DIR`和 `RESULT_DIR`。
-4. 子 Agent 在全新 dev Browser Context 打开邀请链接，运行指定脚本发送并读取 OTP，完成新用户注册，保存 `invitee-registered.png`并返回可见的用户标识。
-5. 父 Agent 回到步骤 1 的 member/www Context，刷新积分或奖励流水；最多等待 60 秒，每 5 秒检查一次。
-6. 记录后值、差值或新增奖励流水，保存 `inviter-after.png`。记录被邀请人手机号、可见用户 ID、邀请标识和奖励标识供后续清理。
+1. `invite_credit_agent` 不启动浏览器，立即通过 `agent` 调用 `invite_registration_agent`，传入本 case、`MEMBER_SESSION`、OTP 脚本、`EVIDENCE_DIR`和 `RESULT_DIR`。
+2. 子 Agent 用一个 playwright_mcp 连接加载 member/www 会话，进入“赚取积分”，记录邀请人积分或奖励流水前值，保存 `inviter-before.png`，复制包含邀请标识的完整链接。
+3. 子 Agent 清除 member 登录态，在 dev 环境使用本轮唯一、未注册的动态手机号打开邀请链接，运行指定脚本发送并读取 OTP，完成注册并保存 `invitee-registered.png`。
+4. 子 Agent 再次加载 member/www 会话，最多等待 60 秒，每 5 秒刷新积分或奖励流水。
+5. 子 Agent 记录后值、差值或新增奖励流水，保存 `inviter-after.png`，返回完整结构化结果。父 Agent 只校验证据并写最终结果，不再打开第二个浏览器补测。
 
 ## 预期结果
 
@@ -40,7 +39,7 @@
 
 ## 阻塞条件
 
-- OTP/Redis 确认不可达，滑块发码脚本连续两次失败，或必要 session 无效。必须写明阻塞发生的具体阶段。
+- OTP/Redis 确认不可达，滑块发码脚本连续两次失败，或必要 session 无效。必须写明阻塞发生的具体阶段；两次失败后禁止手工拖拽或猜测滑块距离。
 
 ## 证据要求
 
