@@ -5,8 +5,8 @@
 - 平台：国内PC
 - 执行方式：可自动化
 - 问题类型：产品体验
-- 用户类型：免费用户 / 付费用户
-- 前置条件：固定邀请人已登录；为本轮生成动态测试手机号，注册前确认该手机号不存在，执行后清理测试被邀请人、邀请关系与奖励记录。若 OTP 已成功收到，不得因页面曾出现滑块就直接判定阻塞，继续完成登录和奖励校验。
+- 用户类型：免费用户
+- 前置条件：国内免费邀请人已登录，禁止使用会员账户作为邀请人；为本轮生成动态测试手机号，注册前确认该手机号不存在，执行后清理测试被邀请人、邀请关系与奖励记录。若 OTP 已成功收到，不得因页面曾出现滑块就直接判定阻塞，继续完成登录和奖励校验。
 - Agent 分组：invite_credit_agent
 - 账号类型：fixed_inviter_account + generated_new_phone
 - 是否修改数据：yes
@@ -16,10 +16,10 @@
 
 ## 测试步骤
 
-1. `invite_credit_agent` 不启动浏览器，立即通过 `agent` 调用 `invite_registration_agent`，传入本 case、`MEMBER_SESSION`、OTP 脚本、`EVIDENCE_DIR`和 `RESULT_DIR`。
-2. 子 Agent 用一个 playwright_mcp 连接加载 member/www 会话，进入“赚取积分”，记录邀请人积分或奖励流水前值，保存 `inviter-before.png`，复制包含邀请标识的完整链接。
-3. 子 Agent 清除 member 登录态，在 dev 环境使用本轮唯一、未注册的动态手机号打开邀请链接，运行指定脚本发送并读取 OTP，完成注册并保存 `invitee-registered.png`。
-4. 子 Agent 再次加载 member/www 会话，最多等待 60 秒，每 5 秒刷新积分或奖励流水。
+1. `invite_credit_agent` 不启动浏览器，立即通过 `agent` 调用 `invite_registration_agent`，传入本 case、`FREE_SESSION`、OTP 脚本、`EVIDENCE_DIR`和 `RESULT_DIR`。
+2. 子 Agent 加载国内免费账户 session（当前为 free/dev），进入“赚取积分”，记录邀请人积分或奖励流水前值，保存 `inviter-before.png`，复制包含邀请标识的完整链接。以 session 内实际 origin 为准，不根据文件名猜环境。
+3. 子 Agent 在隔离 Context 中使用本轮唯一、未注册的动态手机号打开邀请链接，运行指定脚本发送并读取 OTP，完成注册并保存 `invitee-registered.png`。
+4. 子 Agent 再次加载免费账户 session，最多等待 60 秒，每 5 秒刷新积分或奖励流水。
 5. 子 Agent 记录后值、差值或新增奖励流水，保存 `inviter-after.png`，返回完整结构化结果。父 Agent 只校验证据并写最终结果，不再打开第二个浏览器补测。
 
 ## 预期结果
