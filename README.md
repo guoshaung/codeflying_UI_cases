@@ -48,7 +48,7 @@ cases/
 
 - [cases/P0/smoke/README.md](cases/P0/smoke/README.md)
 
-`cases/P0/smoke/` 当前包含 104 条：国内 PC 64 条、国内 H5 40 条。每条用例一个 Markdown，PC 和 H5 分别连续编号。自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 104 个 Markdown 文件为准。
+`cases/P0/smoke/` 当前包含 211 条：国内 PC 65 条、国内 H5 41 条、海外 PC 63 条、海外 H5 42 条。每条用例一个 Markdown，PC 和 H5 分别连续编号。自动化 runner 以 `cases/P0/smoke/README.md` 和其中的 211 个 Markdown 文件为准。
 
 ## 老郭怎么读取
 

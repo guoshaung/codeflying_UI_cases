@@ -19,9 +19,7 @@
 1. 创建独立的 国内PC Browser Context，并按前置条件加载或清除登录态。
 2. 完整恢复 member storage state 的 cookies 与 localStorage，在 `/my-apps` 选择会员账号自己的稳定应用并进入 `/to-app?app_id=...`。
 3. 执行原始测试点描述的操作：会员用户点击下载按钮用户可将项目代码下载至本地。
-   - 使用 `member_account`，不要临时修改数据库会员状态。
-   - 下载按钮优先按 DOM/tooltip 定位：`.download-button`、`.tool-icon.download-button`、`[class*="download"]`、`aria-describedby` 关联 tooltip。
-   - 只有认证接口失败且稳定等待后仍在 `/login`，才能判会员 session 失效；首次跳转或单个 token 字段缺失不构成失效证据。
+   点击上方的菜单栏的“更多“然后在新打开的页面点击源码下载，再点击下载按钮验证是否能够通过。
 4. 记录页面状态、URL、关键 DOM、接口结果和截图。
 
 ## 预期结果
