@@ -7,7 +7,7 @@
 - 问题类型：产品体验
 - 用户类型：免费用户 / 付费用户
 - 前置条件：加载会员 Playwright session；准备本轮专用的一次性应用，名称使用 `E2E_DELETE_<run_id>`，禁止复用或删除已有稳定应用。
-- Agent 分组：`app_lifecycle_agent`
+- Agent 分组：`publish_agent`
 - 账号类型：default-playwright-session
 - 是否修改数据：yes
 - 数据锁：`app:{app_id}`
