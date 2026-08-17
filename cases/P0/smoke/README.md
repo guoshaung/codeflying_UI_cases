@@ -4,10 +4,10 @@
 
 ## 统计
 
-- 用例总数：211
-- 国内 PC：65
+- 用例总数：215
+- 国内 PC：68
 - 国内 H5：41
-- 海外 PC：63
+- 海外 PC：64
 - 海外 H5：42
 - 真人依赖：0
 
@@ -15,14 +15,15 @@
 
 | Agent | 国内PC | 国内H5 | 海外PC | 海外H5 | 合计 |
 |---|---|---|---|---|---|
-| `auth_access_agent` | 8 | 8 | 5 | 8 | 29 |
-| `shell_navigation_agent` | 13 | 0 | 13 | 0 | 26 |
+| `auth_access_agent` | 6 | 5 | 5 | 7 | 23 |
+| `shell_navigation_agent` | 14 | 0 | 11 | 0 | 25 |
 | `invite_credit_agent` | 4 | 0 | 4 | 0 | 8 |
-| `membership_credit_agent` | 16 | 5 | 16 | 5 | 42 |
-| `api_key_agent` | 3 | 0 | 3 | 0 | 6 |
-| `app_lifecycle_agent` | 12 | 20 | 12 | 20 | 64 |
-| `app_publish_test_agent` | 8 | 0 | 8 | 0 | 16 |
-| `remix_agent` | 4 | 1 | 4 | 1 | 10 |
+| `membership_credit_agent` | 15 | 5 | 20 | 4 | 44 |
+| `api_key_agent` | 4 | 0 | 4 | 0 | 8 |
+| `app_lifecycle_agent` | 11 | 10 | 10 | 10 | 41 |
+| `app_publish_test_agent` | 11 | 0 | 6 | 0 | 17 |
+| `publish_agent` | 0 | 12 | 0 | 12 | 24 |
+| `remix_agent` | 3 | 1 | 4 | 1 | 9 |
 | `guest_explore_agent` | 0 | 7 | 0 | 7 | 14 |
 | `profile_support_agent` | 0 | 1 | 0 | 1 | 2 |
 
@@ -239,20 +240,23 @@
 | [CF-P0-PC-046](domestic-pc/app-create/CF-P0-PC-046.md) | 国内PC | 国内主站 / 应用创建 / 点击提示词气泡 | `app_lifecycle_agent` | 可自动化 | 提示词文案进入文本输入框 |
 | [CF-P0-PC-047](domestic-pc/app-preview/CF-P0-PC-047.md) | 国内PC | 国内主站 / 应用预览页 / 应用页面展示 | `app_publish_test_agent` | 可自动化 | 应用完成后自动跳转至应用预览页默认展示应用页面 |
 | [CF-P0-PC-048](domestic-pc/app-preview/CF-P0-PC-048.md) | 国内PC | 国内主站 / 应用预览页 / 应用页面展示 | `app_lifecycle_agent` | 可自动化 | 点击管理后台可跳转至应用管理后台页面 |
-| [CF-P0-PC-049](domestic-pc/app-preview/CF-P0-PC-049.md) | 国内PC | 国内主站 / 应用预览页 / 应用页面展示 | `app_lifecycle_agent` | 可自动化 | 点击助手配置可打开助手配置页面 |
+| [CF-P0-PC-049](domestic-pc/app-preview/CF-P0-PC-049.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 / 更多 | `app_lifecycle_agent` | 可自动化 | 点击更多打开更多页面并默认展示配置助手 |
 | [CF-P0-PC-050](domestic-pc/app-preview/CF-P0-PC-050.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_lifecycle_agent` | 可自动化 | 会员用户点击下载按钮用户可将项目代码下载至本地 |
-| [CF-P0-PC-051](domestic-pc/app-preview/CF-P0-PC-051.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_publish_test_agent` | 可自动化 | 非会员用户点击触发付费弹窗 |
+| [CF-P0-PC-051](domestic-pc/app-preview/CF-P0-PC-051.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_publish_test_agent` | 可自动化 | 非会员用户在源码下载页点击下载按钮触发付费弹窗 |
 | [CF-P0-PC-052](domestic-pc/app-preview/CF-P0-PC-052.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_lifecycle_agent` | 可自动化 | 点击刷新按钮刷新应用展示 |
-| [CF-P0-PC-053](domestic-pc/app-preview/CF-P0-PC-053.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_publish_test_agent` | 可自动化 | 点击发布按钮 弹窗展示发布类型 |
-| [CF-P0-PC-054](domestic-pc/app-preview/CF-P0-PC-054.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 二维码展示 | `app_publish_test_agent` | 可自动化（本轮以二维码入口出现为通过标准；真实手机扫码访问暂不纳入自动化） | 手机扫码可正常访问应用h5页面 |
-| [CF-P0-PC-055](domestic-pc/app-preview/CF-P0-PC-055.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 二维码展示 | `app_publish_test_agent` | 可自动化 | 点击复制按钮可将应用分享链接复制进剪切板 |
-| [CF-P0-PC-056](domestic-pc/app-preview/CF-P0-PC-056.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 在线模式剩余时长 | `app_lifecycle_agent` | 可自动化 | 会员用户点击“好呀”开启全天候预览 |
+| [CF-P0-PC-053](domestic-pc/app-preview/CF-P0-PC-053.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 | `app_publish_test_agent` | 可自动化 | 点击发布按钮展示发布应用弹窗并可进入 H5 发布 |
+| [CF-P0-PC-054](domestic-pc/app-preview/CF-P0-PC-054.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 / 分享 | `app_publish_test_agent` | 可自动化 | 点击分享按钮展示分享海报弹窗 |
+| [CF-P0-PC-055](domestic-pc/app-preview/CF-P0-PC-055.md) | 国内PC | 国内主站 / 应用预览页 / 发布 / 网页应用 | `app_publish_test_agent` | 可自动化 | 点击复制按钮可将应用分享链接复制进剪切板 |
+| [CF-P0-PC-056](domestic-pc/app-preview/CF-P0-PC-056.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 在线模式剩余时长 | `app_lifecycle_agent` | 可自动化 | 会员用户通过剩余时长菜单开启永久在线 |
 | [CF-P0-PC-057](domestic-pc/app-preview/CF-P0-PC-057.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 在线模式剩余时长 | `app_lifecycle_agent` | 可自动化 | 开启全天候预览时不展示剩余时长 |
-| [CF-P0-PC-058](domestic-pc/app-preview/CF-P0-PC-058.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 在线模式剩余时长 | `app_publish_test_agent` | 可自动化 | 非会员用户点击升级解锁按钮弹出付费弹窗 |
-| [CF-P0-PC-059](domestic-pc/app-preview/CF-P0-PC-059.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 发布状态 | `app_publish_test_agent` | 可自动化 | 仅展示微信小程序的发布状态 |
-| [CF-P0-PC-060](domestic-pc/app-preview/CF-P0-PC-060.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 发布状态 | `app_publish_test_agent` | 可自动化 | 点击发布管理弹窗展示发布类型 |
+| [CF-P0-PC-058](domestic-pc/app-preview/CF-P0-PC-058.md) | 国内PC | 国内主站 / 应用预览页 / 发布 / 网页应用 | `app_publish_test_agent` | 可自动化 | 非会员用户点击永久在线弹出付费弹窗 |
+| [CF-P0-PC-059](domestic-pc/app-preview/CF-P0-PC-059.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 发布状态 | `app_publish_test_agent` | 可自动化 | 微信小程序展示当前发布状态并可选择发布版本 |
+| [CF-P0-PC-060](domestic-pc/app-preview/CF-P0-PC-060.md) | 国内PC | 国内主站 / 应用预览页 / 预览和分享 / 发布状态 | `app_publish_test_agent` | 可自动化 | 发布为其他渠道打开其他渠道弹窗 |
 | [CF-P0-PC-061](domestic-pc/copy-app/CF-P0-PC-061.md) | 国内PC | 国内主站 / 复制应用 | `app_lifecycle_agent` | 可自动化 | 应用广场点击应用，展示应用体验弹窗 |
 | [CF-P0-PC-062](domestic-pc/copy-app/CF-P0-PC-062.md) | 国内PC | 国内主站 / 应用广场 / 应用详情 | `remix_agent` | 可自动化 | 公开应用点击查看详情后全屏展示 |
 | [CF-P0-PC-063](domestic-pc/copy-app/CF-P0-PC-063.md) | 国内PC | 国内主站 / 应用广场 / 做同款 | `remix_agent` | 可自动化 | 有可用额度时做同款并出现在我的应用 |
 | [CF-P0-PC-064](domestic-pc/copy-app/CF-P0-PC-064.md) | 国内PC | 国内主站 / 应用广场 / 做同款 | `remix_agent` | 可自动化 | 无可用额度时做同款展示付费弹窗 |
 | [CF-P0-PC-065](domestic-pc/app-preview/CF-P0-PC-065.md) | 国内PC | 国内主站 / 应用管理后台 / 首次登录引导 | `app_lifecycle_agent` | 可自动化 | 进入应用管理后台后首次登录引导视频不应自动播放 |
+| [CF-P0-PC-066](domestic-pc/app-preview/CF-P0-PC-066.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 / 水印管理 | `app_publish_test_agent` | 可自动化 | 点击水印管理进入水印管理页面 |
+| [CF-P0-PC-067](domestic-pc/app-preview/CF-P0-PC-067.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 / 水印管理 | `app_publish_test_agent` | 可自动化 | 会员用户可关闭应用水印 |
+| [CF-P0-PC-068](domestic-pc/app-preview/CF-P0-PC-068.md) | 国内PC | 国内主站 / 应用预览页 / 顶部功能 / 水印管理 | `app_publish_test_agent` | 可自动化 | 非会员用户关闭应用水印时展示付费弹窗 |

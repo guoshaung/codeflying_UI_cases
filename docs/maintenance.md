@@ -34,7 +34,7 @@ cases/P0/smoke/<市场>-<平台>/<模块>/<CASE_ID>.md
 
 目录示例：
 
-- 国内 PC：`cases/P0/smoke/domestic-pc/auth/CF-P0-PC-065.md`
+- 国内 PC：`cases/P0/smoke/domestic-pc/app-preview/CF-P0-PC-065.md`
 - 国内 H5：`cases/P0/smoke/domestic-h5/profile/CF-P0-H5-041.md`
 - 海外 PC：`cases/P0/smoke/overseas-pc/auth/CF-P0-INTL-PC-064.md`
 - 海外 H5：`cases/P0/smoke/overseas-h5/profile/CF-P0-INTL-H5-043.md`
@@ -49,6 +49,7 @@ cases/P0/smoke/<市场>-<平台>/<模块>/<CASE_ID>.md
 - `api_key_agent`
 - `app_lifecycle_agent`
 - `app_publish_test_agent`
+- `publish_agent`
 - `remix_agent`
 - `profile_support_agent`
 

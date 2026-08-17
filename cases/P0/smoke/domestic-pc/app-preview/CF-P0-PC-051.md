@@ -1,4 +1,4 @@
-# CF-P0-PC-051 非会员用户点击触发付费弹窗
+# CF-P0-PC-051 非会员用户在源码下载页点击下载按钮触发付费弹窗
 
 - 优先级：P0
 - 模块：国内主站 / 应用预览页 / 顶部功能
@@ -18,15 +18,15 @@
 
 1. 创建独立的 国内PC Browser Context，并按前置条件加载或清除登录态。
 2. 完整恢复 free storage state，在 `/my-apps` 选择免费账号自己的稳定应用并进入 `/to-app?app_id=...`。
-3. 执行原始测试点描述的操作：非会员用户点击触发付费弹窗。
+3. 点击顶部菜单栏的“更多/More”，进入“源码下载/下载源码”页面或面板，再点击可见的“下载”按钮。
    - 使用 `free_account`，不要临时修改数据库会员状态。
    - 若当前缺少固定非会员 session，本用例标记 `BLOCKED_ACCOUNT_REQUIRED`，不得用会员账号硬跑。
-   - 下载按钮优先按 DOM/tooltip 定位：`.download-button`、`.tool-icon.download-button`、`[class*="download"]`、`aria-describedby` 关联 tooltip。
+   - 下载按钮优先按可见文本定位；必要时可使用 `.download-button`、`.tool-icon.download-button`、`[class*="download"]`、`aria-describedby` 关联 tooltip。
 4. 记录页面状态、URL、关键 DOM、接口结果和截图。
 
 ## 预期结果
 
-1. 原始测试点描述的目标结果正确发生：非会员用户点击触发付费弹窗。
+1. 原始测试点描述的目标结果正确发生：非会员用户在源码下载页点击下载按钮后触发付费弹窗。
 2. 页面无白屏、无未处理报错，相关功能可继续操作。
 
 ## 通过标准
