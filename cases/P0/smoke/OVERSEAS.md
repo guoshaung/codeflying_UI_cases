@@ -72,6 +72,7 @@
 | [CF-P0-INTL-PC-061](overseas-pc/copy-app/CF-P0-INTL-PC-061.md) | 海外PC | `remix_agent` | 点击查看详情 进入全屏展示 |
 | [CF-P0-INTL-PC-062](overseas-pc/copy-app/CF-P0-INTL-PC-062.md) | 海外PC | `remix_agent` | 当前可创建应用数量大于等于1时，可将应用复制在我的应用列表中 |
 | [CF-P0-INTL-PC-063](overseas-pc/copy-app/CF-P0-INTL-PC-063.md) | 海外PC | `remix_agent` | 当前无可创建应用数量时，展示付费弹窗 |
+| [CF-P0-INTL-PC-064](overseas-pc/app-preview/CF-P0-INTL-PC-064.md) | 海外PC | `app_lifecycle_agent` | 进入应用管理后台后首次登录引导视频不应自动播放 |
 | [CF-P0-INTL-H5-001](overseas-h5/guest-home/CF-P0-INTL-H5-001.md) | 海外H5 | `auth_access_agent` | 输入文案点击立即开发，跳转至登录页 |
 | [CF-P0-INTL-H5-002](overseas-h5/guest-home/CF-P0-INTL-H5-002.md) | 海外H5 | `guest_explore_agent` | 点击气泡提示词，文案展示在文本输入框 |
 | [CF-P0-INTL-H5-003](overseas-h5/guest-home/CF-P0-INTL-H5-003.md) | 海外H5 | `guest_explore_agent` | 应用列表默认展示“最新” |

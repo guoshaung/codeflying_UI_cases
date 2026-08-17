@@ -190,6 +190,7 @@
 | [CF-P0-INTL-PC-061](overseas-pc/copy-app/CF-P0-INTL-PC-061.md) | 海外PC | 海外主站 / 复制应用 | `remix_agent` | 可自动化 | 点击查看详情 进入全屏展示 |
 | [CF-P0-INTL-PC-062](overseas-pc/copy-app/CF-P0-INTL-PC-062.md) | 海外PC | 海外主站 / 复制应用 / 做同款 | `remix_agent` | 可自动化 | 当前可创建应用数量大于等于1时，可将应用复制在我的应用列表中 |
 | [CF-P0-INTL-PC-063](overseas-pc/copy-app/CF-P0-INTL-PC-063.md) | 海外PC | 海外主站 / 复制应用 / 做同款 | `remix_agent` | 可自动化 | 当前无可创建应用数量时，展示付费弹窗 |
+| [CF-P0-INTL-PC-064](overseas-pc/app-preview/CF-P0-INTL-PC-064.md) | 海外PC | 海外主站 / 应用管理后台 / 首次登录引导 | `app_lifecycle_agent` | 可自动化 | 进入应用管理后台后首次登录引导视频不应自动播放 |
 | [CF-P0-PC-001](domestic-pc/guest-home/CF-P0-PC-001.md) | 国内PC | 国内主站 / 未登录首页 | `auth_access_agent` | 可自动化 | 点击登录按钮跳转至登录页 |
 | [CF-P0-PC-002](domestic-pc/guest-home/CF-P0-PC-002.md) | 国内PC | 国内主站 / 未登录首页 | `auth_access_agent` | 可自动化 | 输入文案点击立即开发跳转至登录页 |
 | [CF-P0-PC-003](domestic-pc/wechat-auth/CF-P0-PC-003.md) | 国内PC | 国内主站 / 登录 / 微信登录 | `auth_access_agent` | 可自动化 | 点击微信登录展示登录二维码 |
