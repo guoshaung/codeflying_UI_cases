@@ -108,18 +108,18 @@
 | [CF-P0-INTL-H5-020](overseas-h5/workspace/CF-P0-INTL-H5-020.md) | 海外H5 | 海外H5 / 工作台 / 未发布 / 应用操作 / 修改名称 | `app_lifecycle_agent` | 可自动化 | 点击弹出应用名称修改弹窗 |
 | [CF-P0-INTL-H5-021](overseas-h5/workspace/CF-P0-INTL-H5-021.md) | 海外H5 | 海外H5 / 工作台 / 未发布 / 应用操作 / 发布应用 | `app_lifecycle_agent` | 可自动化 | 点击弹出toast提示 |
 | [CF-P0-INTL-H5-022](overseas-h5/workspace/CF-P0-INTL-H5-022.md) | 海外H5 | 海外H5 / 工作台 / 未发布 / 应用操作 / 删除应用 | `app_lifecycle_agent` | 可自动化 | 点击弹出二次确认弹窗 |
-| [CF-P0-INTL-H5-023](overseas-h5/workspace/CF-P0-INTL-H5-023.md) | 海外H5 | 海外H5 / 工作台 / 已发布 | `app_lifecycle_agent` | 可自动化 | 展示该用户已发布的应用 |
-| [CF-P0-INTL-H5-024](overseas-h5/workspace/CF-P0-INTL-H5-024.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 | `app_lifecycle_agent` | 可自动化 | 点击应用名称后操作按钮展示操作功能半屏弹窗 |
-| [CF-P0-INTL-H5-025](overseas-h5/workspace/CF-P0-INTL-H5-025.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 分享应用 | `app_lifecycle_agent` | 可自动化 | 点击弹出分享链接弹窗 |
-| [CF-P0-INTL-H5-026](overseas-h5/workspace/CF-P0-INTL-H5-026.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 分享应用 | `app_lifecycle_agent` | 可自动化 | 点击复制链接可将分享链接复制到剪切板 |
-| [CF-P0-INTL-H5-027](overseas-h5/workspace/CF-P0-INTL-H5-027.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 | `app_lifecycle_agent` | 可自动化 | 点击跳转至应用对话页面 |
-| [CF-P0-INTL-H5-028](overseas-h5/workspace/CF-P0-INTL-H5-028.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 卡片信息 | `app_lifecycle_agent` | 可自动化 | 点击查看应用进入应用预览页 |
-| [CF-P0-INTL-H5-029](overseas-h5/workspace/CF-P0-INTL-H5-029.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 卡片信息 | `app_lifecycle_agent` | 可自动化 | 点击发布应用弹出toast提示 |
-| [CF-P0-INTL-H5-030](overseas-h5/workspace/CF-P0-INTL-H5-030.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 底部功能按钮 | `app_lifecycle_agent` | 可自动化 | 点击预览应用进入应用预览页 |
-| [CF-P0-INTL-H5-031](overseas-h5/workspace/CF-P0-INTL-H5-031.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 底部功能按钮 | `app_lifecycle_agent` | 可自动化 | 点击发布应用弹出toast提示 |
-| [CF-P0-INTL-H5-032](overseas-h5/workspace/CF-P0-INTL-H5-032.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 修改名称 | `app_lifecycle_agent` | 可自动化 | 点击弹出应用名称修改弹窗 |
-| [CF-P0-INTL-H5-033](overseas-h5/workspace/CF-P0-INTL-H5-033.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 取消发布 | `app_lifecycle_agent` | 可自动化 | 点击结束应用发布状态 |
-| [CF-P0-INTL-H5-034](overseas-h5/workspace/CF-P0-INTL-H5-034.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 删除应用 | `app_lifecycle_agent` | 可自动化 | 点击弹出二次确认弹窗 |
+| [CF-P0-INTL-H5-023](overseas-h5/publish/CF-P0-INTL-H5-023.md) | 海外H5 | 海外H5 / 工作台 / 已发布 | `publish_agent` | 可自动化 | 展示该用户已发布的应用 |
+| [CF-P0-INTL-H5-024](overseas-h5/publish/CF-P0-INTL-H5-024.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 | `publish_agent` | 可自动化 | 点击应用名称后操作按钮展示操作功能半屏弹窗 |
+| [CF-P0-INTL-H5-025](overseas-h5/publish/CF-P0-INTL-H5-025.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 分享应用 | `publish_agent` | 可自动化 | 点击弹出分享链接弹窗 |
+| [CF-P0-INTL-H5-026](overseas-h5/publish/CF-P0-INTL-H5-026.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 分享应用 | `publish_agent` | 可自动化 | 点击复制链接可将分享链接复制到剪切板 |
+| [CF-P0-INTL-H5-027](overseas-h5/publish/CF-P0-INTL-H5-027.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 | `publish_agent` | 可自动化 | 点击跳转至应用对话页面 |
+| [CF-P0-INTL-H5-028](overseas-h5/publish/CF-P0-INTL-H5-028.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 卡片信息 | `publish_agent` | 可自动化 | 点击查看应用进入应用预览页 |
+| [CF-P0-INTL-H5-029](overseas-h5/publish/CF-P0-INTL-H5-029.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 卡片信息 | `publish_agent` | 可自动化 | 点击发布应用弹出toast提示 |
+| [CF-P0-INTL-H5-030](overseas-h5/publish/CF-P0-INTL-H5-030.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 底部功能按钮 | `publish_agent` | 可自动化 | 点击预览应用进入应用预览页 |
+| [CF-P0-INTL-H5-031](overseas-h5/publish/CF-P0-INTL-H5-031.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 查看对话过程 / 底部功能按钮 | `publish_agent` | 可自动化 | 点击发布应用弹出toast提示 |
+| [CF-P0-INTL-H5-032](overseas-h5/publish/CF-P0-INTL-H5-032.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 修改名称 | `publish_agent` | 可自动化 | 点击弹出应用名称修改弹窗 |
+| [CF-P0-INTL-H5-033](overseas-h5/publish/CF-P0-INTL-H5-033.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 取消发布 | `publish_agent` | 可自动化 | 点击结束应用发布状态 |
+| [CF-P0-INTL-H5-034](overseas-h5/publish/CF-P0-INTL-H5-034.md) | 海外H5 | 海外H5 / 工作台 / 已发布 / 应用操作 / 删除应用 | `publish_agent` | 可自动化 | 点击弹出二次确认弹窗 |
 | [CF-P0-INTL-H5-035](overseas-h5/profile/CF-P0-INTL-H5-035.md) | 海外H5 | 海外H5 / 个人中心 | `membership_credit_agent` | 可自动化 | 顶部展示用户信息 |
 | [CF-P0-INTL-H5-036](overseas-h5/profile/CF-P0-INTL-H5-036.md) | 海外H5 | 海外H5 / 个人中心 / 会员类型 | `membership_credit_agent` | 可自动化 | 展示用户当前会员类型及过期时间 |
 | [CF-P0-INTL-H5-037](overseas-h5/profile/CF-P0-INTL-H5-037.md) | 海外H5 | 海外H5 / 个人中心 / 会员类型 / 充值会员 | `profile_support_agent` | 可自动化 | 点击进入购买会员页面 |
