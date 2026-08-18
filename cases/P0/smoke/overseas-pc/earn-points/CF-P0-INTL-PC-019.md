@@ -1,5 +1,7 @@
 # CF-P0-INTL-PC-019 成功邀请新用户登录可正常下发对应积分
 
+> 当前冻结：本轮不调用 `invite_registration_agent`，由 `invite_credit_agent` 直接写 `NOT_RUN`；恢复时删除本提示并同步派发规则。
+
 - 优先级：P0
 - 模块：海外主站 / 侧边栏 / 赚取积分
 - 平台：海外PC
