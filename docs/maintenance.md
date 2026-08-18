@@ -37,7 +37,7 @@ cases/P0/smoke/<市场>-<平台>/<模块>/<CASE_ID>.md
 - 国内 PC：`cases/P0/smoke/domestic-pc/app-preview/CF-P0-PC-065.md`
 - 国内 H5：`cases/P0/smoke/domestic-h5/profile/CF-P0-H5-041.md`
 - 海外 PC：`cases/P0/smoke/overseas-pc/auth/CF-P0-INTL-PC-064.md`
-- 海外 H5：`cases/P0/smoke/overseas-h5/profile/CF-P0-INTL-H5-043.md`
+- 海外 H5：`cases/P0/smoke/overseas-h5/app-create/CF-P0-INTL-H5-042.md`
 
 每条新增用例必须填写 `Agent 分组`，只能使用：
 
