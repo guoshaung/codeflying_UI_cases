@@ -6,9 +6,9 @@
 - 执行方式：可自动化
 - 问题类型：产品体验
 - 用户类型：免费用户 / 付费用户
-- 前置条件：测试环境可访问；固定测试手机号 `19113720926` 已获授权用于验证码登录；老郭环境可访问 `send_launch_code` 和测试 Redis。
+- 前置条件：测试环境可访问；固定测试手机号 `17710753306` 已获授权用于验证码登录；老郭环境可访问 `send_launch_code` 和测试 Redis。
 - Agent 分组：auth_access_agent
-- 账号类型：fixed-test-phone (`19113720926`) + mock-otp
+- 账号类型：free-dev-phone (`17710753306`) + mock-otp
 - 是否修改数据：no
 - 数据锁：`account:{phone}`
 - 清理动作：清理动态测试账号及登录会话
@@ -17,7 +17,7 @@
 ## 测试步骤
 
 1. 创建独立的 国内PC Browser Context，清除登录态，打开 `https://dev.codeflying.net`。
-2. 进入手机号验证码登录页，在手机号输入框填写固定测试号 `19113720926`，记录获取验证码按钮可见证据。
+2. 进入手机号验证码登录页，在手机号输入框填写固定测试号 `17710753306`，记录获取验证码按钮可见证据。
 3. 本轮只通过 task 绑定 launcher 派发一次 `CF-P0-PC-004`：
 
    ```bash
@@ -26,7 +26,7 @@
      --case-ids "CF-P0-PC-004"
    ```
 
-   launcher 会执行 task 中已绑定 path/SHA 的 `get_redis_code.py`：先打开 dev PC 登录页完成滑块并触发浏览器发码，再轮询 Redis key `sms_code:19113720926:login:code`，并生成 execution receipt。禁止用无 captcha token 的 raw `send_launch_code` 请求代替浏览器流程，也禁止直接运行该脚本。
+   launcher 会执行 task 中已绑定 path/SHA 的 `get_redis_code.py`：先打开 dev PC 登录页完成滑块并触发浏览器发码，再轮询 Redis key `sms_code:17710753306:login:code`，并生成 execution receipt。禁止用无 captcha token 的 raw `send_launch_code` 请求代替浏览器流程，也禁止直接运行该脚本。
 4. 验证脚本返回：Redis 取码成功、TTL 大于 0；接口响应作为独立证据记录，不要求 `send_launch_code` 在滑块场景下业务成功。
 5. 记录页面按钮、接口业务响应、Redis key/TTL 和截图；报告不得暴露完整验证码。
 
@@ -61,3 +61,5 @@
 ## 备注
 
 - 固定测试手机号只用于测试环境；全量测试每轮只触发一次验证码，H5-007/008 复用本用例与 PC-005 的证据/session。
+- free/dev 测试手机号只用于测试环境；全量测试每轮只触发一次验证码，H5-007/008 复用本用例与 PC-005 的证据/session。
+- member 账号手机号 `19113720926` 不能用于 OTP；若 agent 从 session/currentUser 读到该手机号，必须忽略并改用 `17710753306`。
